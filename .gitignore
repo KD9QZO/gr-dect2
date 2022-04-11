@@ -1,0 +1,25 @@
+#
+# .gitignore
+#
+
+## GENERAL ##
+*~
+*.bak
+._*
+
+
+## QT Creator ##
+
+*.pro.user
+*.pro.user*
+*.txt.user
+
+
+
+## CMake ##
+
+build
+build-*
+build/
+build-*/
+
