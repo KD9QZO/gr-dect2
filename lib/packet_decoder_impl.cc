@@ -268,10 +268,10 @@ int packet_decoder_impl::work(int noutput_items, gr_vector_int &ninput_items, gr
 	d_cur_part = &d_part_descriptor[rx_id];
 
 	if (d_cur_part->active == true) {
-		uint64_t seq_diff = (rx_seq - d_cur_part->rx_seq) & 0x1F;
+		uint64_t seq_diff = ((rx_seq - d_cur_part->rx_seq) & 0x1F);
 
 		if (ptype == _RFP_) {
-			d_cur_part->frame_number = (d_cur_part->frame_number + seq_diff) & 0xF;
+			d_cur_part->frame_number = ((d_cur_part->frame_number + seq_diff) & 0x0F);
 
 			// Update frame number for pair if available
 			if (d_cur_part->pair != NULL) {
@@ -282,7 +282,7 @@ int packet_decoder_impl::work(int noutput_items, gr_vector_int &ninput_items, gr
 			if (d_cur_part->rpf_fn_cor == true) {
 				d_cur_part->rpf_fn_cor ==  false;
 			} else {
-				d_cur_part->frame_number = (d_cur_part->frame_number + seq_diff) & 0xF;
+				d_cur_part->frame_number = ((d_cur_part->frame_number + seq_diff) & 0x0F);
 			}
 		}
 
