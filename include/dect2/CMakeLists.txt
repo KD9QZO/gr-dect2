@@ -20,9 +20,12 @@
 ########################################################################
 # Install public header files
 ########################################################################
+
 install(FILES
-    api.h
-    phase_diff.h
-    packet_decoder.h
-    packet_receiver.h DESTINATION include/dect2
+		api.h
+		phase_diff.h
+		packet_decoder.h
+		packet_receiver.h
+		DESTINATION
+		include/dect2
 )

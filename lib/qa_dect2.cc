@@ -27,10 +27,8 @@
 
 #include "qa_dect2.h"
 
-CppUnit::TestSuite *
-qa_dect2::suite()
-{
-  CppUnit::TestSuite *s = new CppUnit::TestSuite("dect2");
+CppUnit::TestSuite *qa_dect2::suite() {
+	CppUnit::TestSuite *s = new CppUnit::TestSuite("dect2");
 
-  return s;
+	return (s);
 }

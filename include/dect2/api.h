@@ -25,9 +25,9 @@
 #include <gnuradio/attributes.h>
 
 #ifdef gnuradio_dect2_EXPORTS
-#  define DECT2_API __GR_ATTR_EXPORT
+#define DECT2_API __GR_ATTR_EXPORT
 #else
-#  define DECT2_API __GR_ATTR_IMPORT
+#define DECT2_API __GR_ATTR_IMPORT
 #endif
 
 #endif /* INCLUDED_DECT2_API_H */

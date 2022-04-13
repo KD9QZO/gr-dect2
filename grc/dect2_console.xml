@@ -5,7 +5,7 @@
   <import>import dect2</import>
   <make>#set $win = 'self.%s'%$id
 dect2.console()
-$(gui_hint()($win))
+$(gui_hint()%($win))
   </make>
   <param>
     <name>GUI Hint</name>

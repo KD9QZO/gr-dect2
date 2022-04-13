@@ -20,27 +20,34 @@
 ########################################################################
 # Check if there is C++ code at all
 ########################################################################
+
 if(NOT dect2_sources)
 	MESSAGE(STATUS "No C++ sources... skipping swig/")
 	return()
 endif(NOT dect2_sources)
 
+
+
 ########################################################################
 # Include swig generation macros
 ########################################################################
+
 find_package(SWIG)
 find_package(PythonLibs 2)
 if(NOT SWIG_FOUND OR NOT PYTHONLIBS_FOUND)
-    return()
+	return()
 endif()
 include(GrSwig)
 include(GrPython)
 
+
+
 ########################################################################
 # Setup swig generation
 ########################################################################
+
 foreach(incdir ${GNURADIO_RUNTIME_INCLUDE_DIRS})
-    list(APPEND GR_SWIG_INCLUDE_DIRS ${incdir}/gnuradio/swig)
+	list(APPEND GR_SWIG_INCLUDE_DIRS ${incdir}/gnuradio/swig)
 endforeach(incdir)
 
 set(GR_SWIG_LIBRARIES gnuradio-dect2)
@@ -49,17 +56,24 @@ set(GR_SWIG_DOC_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
 GR_SWIG_MAKE(dect2_swig dect2_swig.i)
 
+
+
 ########################################################################
 # Install the build swig module
 ########################################################################
+
 GR_SWIG_INSTALL(TARGETS dect2_swig DESTINATION ${GR_PYTHON_DIR}/dect2)
+
+
 
 ########################################################################
 # Install swig .i files for development
 ########################################################################
+
 install(
-    FILES
-    dect2_swig.i
-    ${CMAKE_CURRENT_BINARY_DIR}/dect2_swig_doc.i
-    DESTINATION ${GR_INCLUDE_DIR}/dect2/swig
+		FILES
+		dect2_swig.i
+		${CMAKE_CURRENT_BINARY_DIR}/dect2_swig_doc.i
+		DESTINATION
+		${GR_INCLUDE_DIR}/dect2/swig
 )

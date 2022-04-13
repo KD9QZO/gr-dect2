@@ -31,17 +31,17 @@
 #include "qa_dect2.h"
 #include <iostream>
 
-int
-main (int argc, char **argv)
-{
-  CppUnit::TextTestRunner runner;
-  std::ofstream xmlfile(get_unittest_path("dect2.xml").c_str());
-  CppUnit::XmlOutputter *xmlout = new CppUnit::XmlOutputter(&runner.result(), xmlfile);
 
-  runner.addTest(qa_dect2::suite());
-  runner.setOutputter(xmlout);
 
-  bool was_successful = runner.run("", false);
+int main(int argc, char *argv[]) {
+	CppUnit::TextTestRunner runner;
+	std::ofstream xmlfile(get_unittest_path("dect2.xml").c_str());
+	CppUnit::XmlOutputter *xmlout = new CppUnit::XmlOutputter(&runner.result(), xmlfile);
 
-  return was_successful ? 0 : 1;
+	runner.addTest(qa_dect2::suite());
+	runner.setOutputter(xmlout);
+
+	bool was_successful = runner.run("", false);
+
+	return (was_successful ? 0 : 1);
 }

@@ -19,7 +19,8 @@
 # Boston, MA 02110-1301, USA.
 #
 
-"""Misc utilities used at build time
+"""
+Misc utilities used at build time
 """
 
 import re, os, os.path
